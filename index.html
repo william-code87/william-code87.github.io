@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>給妳的小小溫暖角落</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #fbeffb, #e3f6f5);
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #ff7eb3;
+      padding: 0 20px;
+    }
+    p {
+      font-size: 18px;
+      margin: 15px 20px;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      width: 220px;
+      border-radius: 20px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 12px 20px;
+      background-color: #ffb3c1;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      margin: 10px 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #ffa3b1;
+    }
+    #hugGif, #loveGif, #teaGif {
+      display: none;
+      margin: 20px auto;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffdaec;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      font-size: 16px;
+    }
+    audio {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>給妳的小小溫暖角落 💖</h1>
+  <p>You're not alone. 妤蓁加油！我在妳身邊。</p>
+
+  <div class="carousel">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eKfpB6WZeKC1DiGrj8/giphy.gif" alt="Cute Cat">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/SYo1DFS8NLhhqzzjMU/giphy.gif" alt="Hug Bear">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/IzXiddo2twMmdmU8Lv/giphy.gif" alt="Bubble Tea">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gjHkRHSuHqu99y9Yjt/giphy.gif" alt="Shiba Inu">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Ie4CIIvQS0bk3zwZlM/giphy.gif" alt="Love Heart">
+  </div>
+
+  <button onclick="showGif('hugGif')">給妳一個大大的擁抱 🤗</button>
+  <button onclick="showGif('loveGif')">送愛心 ❤️</button>
+  <button onclick="showGif('teaGif')">虛擬珍奶 🧋</button>
+  <button onclick="showMessage()">妳好棒！</button>
+
+  <div id="hugGif">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHVsMXcwOXJtemIyanl2eHRieXBramp0aTdweDllcTdma2NpejA2byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9d3LQ6TdV2Flo8ODTU/giphy.gif" width="200">
+  </div>
+  <div id="loveGif">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3E2a2dvNG96b3QwZHBxM3Y4dmk1bmlxZWppampydnU4bXUzcXR4YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sh11BmCf8HY8F0c5GN/giphy.gif" width="200">
+  </div>
+  <div id="teaGif">
+    <img src="https://media.giphy.com/media/lZXACqQG0qxBsVZWSy/giphy.gif?cid=ecf05e47i3wtwonxcqb73eff2fmh8g8txk9ck4m4hsi2mhqj&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="200">
+  </div>
+
+  <audio id="waterSound">
+    <source src="https://cdn.pixabay.com/download/audio/2025/04/02/audio_efecc9354a.mp3" type="audio/mp3">
+  </audio>
+  <button onclick="playSound()">放鬆音樂 🎶</button>
+
+  <div id="popup">妳真的超棒的 💖</div>
+
+  <script>
+    function showGif(gifId) {
+      document.getElementById('hugGif').style.display = 'none';
+      document.getElementById('loveGif').style.display = 'none';
+      document.getElementById('teaGif').style.display = 'none';
+      document.getElementById(gifId).style.display = 'block';
+    }
+    function showMessage() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'block';
+      setTimeout(() => { popup.style.display = 'none'; }, 2000);
+    }
+    function playSound() {
+      const sound = document.getElementById('waterSound');
+      sound.play();
+    }
+  </script>
+
+</body>
+</html>
