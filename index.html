@@ -67,6 +67,27 @@
       top: 10px;
       right: 10px;
     }
+    
+    @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5em;
+    }
+  
+    #message {
+      font-size: 1.2em;
+      padding: 8px;
+    }
+  
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+    }
+  
+    .gif {
+      width: 140px;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -81,7 +102,7 @@
   <img id="gifImage" class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejlhOTlrdHo2MHY1eDRtaWV0dTVuaWozdzdwbzdpNDJvcXcwZ2xleCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/L9AqjFr6H4iaY/giphy.gif" alt="Cute">
 </div>
 
-<audio id="bgm" controls autoplay loop>
+<audio id="bgm" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/08/11/audio_1bd3a674ee.mp3" type="audio/mpeg">
   你的瀏覽器不支援音樂播放器
 </audio>
@@ -105,8 +126,13 @@
 
   let messageIndex = 0;
   let gifIndex = 0;
+  let isMusicPlaying = false;
   
   function showMessage() {
+    if (!isMusicPlaying) {
+      document.getElementById('bgm').play();
+      isMusicPlaying = true;
+    }
     // Tampilkan pesan berurutan
     const msg = messages[messageIndex];
     document.getElementById('message').innerText = msg;
