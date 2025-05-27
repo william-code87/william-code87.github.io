@@ -1,131 +1,135 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>給妳的小小溫暖角落</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>給妤蓁的一頁 ❤️</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #fbeffb, #e3f6f5);
       text-align: center;
-      color: #333;
+      overflow-x: hidden;
+      position: relative;
     }
+
     h1 {
-      margin-top: 30px;
-      font-size: 28px;
-      color: #ff7eb3;
-      padding: 0 20px;
+      margin-top: 50px;
+      font-size: 2.2em;
+      color: #e60073;
     }
-    p {
-      font-size: 18px;
-      margin: 15px 20px;
+
+    #message {
+      margin: 30px auto;
+      font-size: 1.5em;
+      color: #555;
+      padding: 10px;
     }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 15px;
-      padding: 20px;
-      scroll-snap-type: x mandatory;
-    }
-    .carousel img {
-      flex: 0 0 auto;
-      width: 220px;
-      border-radius: 20px;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+
     button {
-      padding: 12px 20px;
-      background-color: #ffb3c1;
+      background: #ff66a3;
       border: none;
-      border-radius: 25px;
-      font-size: 16px;
-      margin: 10px 8px;
+      padding: 15px 30px;
+      color: #fff;
+      font-size: 1.2em;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
+
     button:hover {
-      background-color: #ffa3b1;
+      background: #ff3385;
     }
-    #hugGif, #loveGif, #teaGif {
-      display: none;
-      margin: 20px auto;
+
+    .gif {
+      margin-top: 20px;
+      width: 180px;
+      border-radius: 10px;
     }
-    #popup {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffdaec;
-      padding: 15px 25px;
-      border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      font-size: 16px;
+
+    .sakura {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ6NnRvNnNleWEyMGJvbGN2aHU0bXBsZXVoOGY1OTZ1bzF2bnB2YSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/kGuIOMiLoG9DvRVmjd/giphy.gif') no-repeat center/cover;
+      animation: fall 8s linear infinite;
     }
+
+    @keyframes fall {
+      0% {transform: translateY(0) rotate(0deg);}
+      100% {transform: translateY(100vh) rotate(360deg);}
+    }
+
     audio {
-      margin: 20px 0;
+      position: fixed;
+      top: 10px;
+      right: 10px;
     }
   </style>
 </head>
 <body>
 
-  <h1>給妳的小小溫暖角落 💖</h1>
-  <p>You're not alone. 妤蓁加油！我在妳身邊。</p>
+<h1>妤蓁 ❤️ 我在這裡陪妳</h1>
 
-  <div class="carousel">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/eKfpB6WZeKC1DiGrj8/giphy.gif" alt="Cute Cat">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/SYo1DFS8NLhhqzzjMU/giphy.gif" alt="Hug Bear">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/IzXiddo2twMmdmU8Lv/giphy.gif" alt="Bubble Tea">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gjHkRHSuHqu99y9Yjt/giphy.gif" alt="Shiba Inu">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2NrcXF4dXliaHYzeW1jNmM1bnp5bWN1YnE3emljcGdpcWI5cTQ4MyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Ie4CIIvQS0bk3zwZlM/giphy.gif" alt="Love Heart">
-  </div>
+<div id="message">點擊下面按鈕，我有話想跟妳說 🥺</div>
 
-  <button onclick="showGif('hugGif')">給妳一個大大的擁抱 🤗</button>
-  <button onclick="showGif('loveGif')">送愛心 ❤️</button>
-  <button onclick="showGif('teaGif')">虛擬珍奶 🧋</button>
-  <button onclick="showMessage()">妳好棒！</button>
+<button onclick="showMessage()">點我</button>
 
-  <div id="hugGif">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHVsMXcwOXJtemIyanl2eHRieXBramp0aTdweDllcTdma2NpejA2byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9d3LQ6TdV2Flo8ODTU/giphy.gif" width="200">
-  </div>
-  <div id="loveGif">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3E2a2dvNG96b3QwZHBxM3Y4dmk1bmlxZWppampydnU4bXUzcXR4YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sh11BmCf8HY8F0c5GN/giphy.gif" width="200">
-  </div>
-  <div id="teaGif">
-    <img src="https://media.giphy.com/media/lZXACqQG0qxBsVZWSy/giphy.gif?cid=ecf05e47i3wtwonxcqb73eff2fmh8g8txk9ck4m4hsi2mhqj&ep=v1_gifs_search&rid=giphy.gif&ct=g" width="200">
-  </div>
+<div>
+  <img id="gifImage" class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExejlhOTlrdHo2MHY1eDRtaWV0dTVuaWozdzdwbzdpNDJvcXcwZ2xleCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/L9AqjFr6H4iaY/giphy.gif" alt="Cute">
+</div>
 
-  <audio id="waterSound">
-    <source src="https://cdn.pixabay.com/download/audio/2025/04/02/audio_efecc9354a.mp3" type="audio/mp3">
-  </audio>
-  <button onclick="playSound()">放鬆音樂 🎶</button>
+<audio id="bgm" controls autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/08/11/audio_1bd3a674ee.mp3" type="audio/mpeg">
+  你的瀏覽器不支援音樂播放器
+</audio>
 
-  <div id="popup">妳真的超棒的 💖</div>
+<script>
+  const messages = [
+    "妤蓁，妳很棒，我為妳感到驕傲 ❤️",
+    "我知道這段時間很辛苦，但妳一定能度過！✨",
+    "妳的笑容是我每天的動力 🌸",
+    "別忘了，我一直在這裡陪著妳 🤗",
+    "就算全世界灰暗，我也會為妳點亮星星 ⭐",
+    "休息一下也沒關係，我抱著妳 ❤️",
+  ];
 
-  <script>
-    function showGif(gifId) {
-      document.getElementById('hugGif').style.display = 'none';
-      document.getElementById('loveGif').style.display = 'none';
-      document.getElementById('teaGif').style.display = 'none';
-      document.getElementById(gifId).style.display = 'block';
-    }
-    function showMessage() {
-      const popup = document.getElementById('popup');
-      popup.style.display = 'block';
-      setTimeout(() => { popup.style.display = 'none'; }, 2000);
-    }
-    function playSound() {
-      const sound = document.getElementById('waterSound');
-      sound.play();
-    }
-  </script>
+  const gifs = [
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXA5dmk3MnZyMjR4emc2NWE5MDdzMmo2aW5vN2dtZGVjMzdjc2txYiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MNlmfzkhmZxF9d5qmF/giphy.gif",
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDM3Y3h4bG9wZ202ejJ4eHVlMndkb3F4NGtvc2o3YWxrZ2gzaDdhYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Lv2VhwHrt6ljhvZ6LF/giphy.gif",
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2ltaDFlbDZlYXdhZzdlc2tram5rbXFmamUzcGs5aDhsbjJpczZ4ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tpVKvAabWt3G5csMkT/giphy.gif",
+    "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXAzZzZhbjZmMXNlY3I0dzZpeXk0ZXV4Mzh0OXd3bW05NmFoM2U1aSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KztT2c4u8mYYUiMKdJ/giphy.gif"
+  ];
+
+  let messageIndex = 0;
+  let gifIndex = 0;
+  
+  function showMessage() {
+    // Tampilkan pesan berurutan
+    const msg = messages[messageIndex];
+    document.getElementById('message').innerText = msg;
+    messageIndex = (messageIndex + 1) % messages.length;
+  
+    // Tampilkan gif berurutan
+    const gif = gifs[gifIndex];
+    document.getElementById('gifImage').src = gif;
+    gifIndex = (gifIndex + 1) % gifs.length;
+  
+    // Animasi sakura
+    const heart = document.createElement('div');
+    heart.className = 'sakura';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+    document.body.appendChild(heart);
+  
+    setTimeout(() => {
+      document.body.removeChild(heart);
+    }, 8000);
+  }
+
+</script>
 
 </body>
 </html>
