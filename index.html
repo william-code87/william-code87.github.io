@@ -2,6 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- PENTING -->
   <title>給妤蓁的一頁 ❤️</title>
   <style>
     body {
@@ -15,25 +16,26 @@
     }
 
     h1 {
-      margin-top: 50px;
-      font-size: 2.2em;
+      margin-top: 6vh;
+      font-size: 2.5vh;
       color: #e60073;
     }
 
     #message {
-      margin: 30px auto;
-      font-size: 1.5em;
+      margin: 4vh auto;
+      font-size: 2vh;
       color: #555;
-      padding: 10px;
+      padding: 1vh;
+      max-width: 90%;
     }
 
     button {
       background: #ff66a3;
       border: none;
-      padding: 15px 30px;
+      padding: 2vh 5vw;
       color: #fff;
-      font-size: 1.2em;
-      border-radius: 30px;
+      font-size: 2vh;
+      border-radius: 50px;
       cursor: pointer;
       transition: 0.3s;
     }
@@ -43,16 +45,18 @@
     }
 
     .gif {
-      margin-top: 20px;
-      width: 180px;
+      margin-top: 3vh;
+      width: 40vw;
+      max-width: 200px;
       border-radius: 10px;
     }
 
     .sakura {
       position: absolute;
       top: -50px;
-      width: 30px;
-      height: 30px;
+      width: 6vw;
+      max-width: 30px;
+      height: 6vw;
       background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ6NnRvNnNleWEyMGJvbGN2aHU0bXBsZXVoOGY1OTZ1bzF2bnB2YSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/kGuIOMiLoG9DvRVmjd/giphy.gif') no-repeat center/cover;
       animation: fall 8s linear infinite;
     }
@@ -66,27 +70,28 @@
       position: fixed;
       top: 10px;
       right: 10px;
+      width: 30px;
+      height: 30px;
     }
-    
+
+    /* Responsif tambahan */
     @media (max-width: 600px) {
-    h1 {
-      font-size: 1.5em;
+      h1 {
+        font-size: 3vh;
+      }
+
+      #message {
+        font-size: 2.2vh;
+      }
+
+      button {
+        font-size: 2.2vh;
+      }
+
+      .gif {
+        width: 60vw;
+      }
     }
-  
-    #message {
-      font-size: 1.2em;
-      padding: 8px;
-    }
-  
-    button {
-      padding: 12px 25px;
-      font-size: 1em;
-    }
-  
-    .gif {
-      width: 140px;
-    }
-  }
 
   </style>
 </head>
@@ -104,7 +109,6 @@
 
 <audio id="bgm" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/08/11/audio_1bd3a674ee.mp3" type="audio/mpeg">
-  你的瀏覽器不支援音樂播放器
 </audio>
 
 <script>
@@ -127,34 +131,31 @@
   let messageIndex = 0;
   let gifIndex = 0;
   let isMusicPlaying = false;
-  
+
   function showMessage() {
     if (!isMusicPlaying) {
       document.getElementById('bgm').play();
       isMusicPlaying = true;
     }
-    // Tampilkan pesan berurutan
+
     const msg = messages[messageIndex];
     document.getElementById('message').innerText = msg;
     messageIndex = (messageIndex + 1) % messages.length;
-  
-    // Tampilkan gif berurutan
+
     const gif = gifs[gifIndex];
     document.getElementById('gifImage').src = gif;
     gifIndex = (gifIndex + 1) % gifs.length;
-  
-    // Animasi sakura
+
     const heart = document.createElement('div');
     heart.className = 'sakura';
     heart.style.left = Math.random() * window.innerWidth + 'px';
     heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
     document.body.appendChild(heart);
-  
+
     setTimeout(() => {
       document.body.removeChild(heart);
     }, 8000);
   }
-
 </script>
 
 </body>
